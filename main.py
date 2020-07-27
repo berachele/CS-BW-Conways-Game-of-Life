@@ -1,18 +1,18 @@
 import pygame
 import os
 
-os.environ["DSL_VIDEO_CENTERED"]='1'
+os.environ["SDL_VIDEO_CENTERED"]='1'
 
-WIDTH, HEIGHT = 1440, 900
-size = (WIDTH, HEIGHT)
+width, height = 1440, 900
+size = (width, height)
 
-pygmae.init()
-pygame.display.set_caption()
+pygame.init()
+pygame.display.set_caption("Conway's Game of Life")
 screen = pygame.display.set_mode(size)
 clock = pygame.time.Clock()
 fps = 60
 
-black = ()
-blue = ()
+black = (0, 0, 0)
+blue = (0, 14, 71)
 white = (255, 255, 255)
 
