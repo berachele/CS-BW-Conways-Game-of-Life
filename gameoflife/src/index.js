@@ -84,10 +84,10 @@ class Main extends React.Component {
   //method to automatically fill grid with cells randomly
   seedGrid = () => {
     let gridCopy = arrayClone(this.state.gridFull)
-    for (let i = 0; i < this.rows; i++){
-      for (let j = 0; j < this.columns; j++){
+    for (let x = 0; x < this.rows; x++){
+      for (let y = 0; y < this.columns; y++){
         if (Math.floor(Math.random() * 4) === 1){
-          gridCopy[i][j] = true
+          gridCopy[x][y] = true
         }
       }
     }
@@ -96,6 +96,44 @@ class Main extends React.Component {
     })
   }
 
+  //function when we click Play button
+  playButton = () => {
+    clearInterval(this.intervalId)
+    this.intervalId = setInterval(this.play, this.speed)
+  }
+
+  //play method--using two grids for double buffering, switching intervals
+  play = () => {
+    let grid1 = this.state.gridFull
+    let grid2 = arrayClone(this.state.gridFull)
+
+    for (let x = 0; x < this.rows; x++){
+      for(let y = 0; y < this.columns; y++){
+        let count = 0
+        //checking all the neighbors
+        if (x > 0) if (grid1[x - 1][y]) count++
+        if (x > 0 && y > 0) if (grid1[x - 1][y - 1]) count++
+        if (x > 0 && y < this.columns - 1) if (grid1[x - 1][y + 1]) count++
+        if (y < this.columns -1) if (grid1[x][y + 1]) count++
+        if (y > 0) if (grid1[x][y - 1]) count++
+        if (x < this.rows - 1) if (grid1[x + 1][y]) count++
+        if (x < this.rows - 1 && y > 0) if (grid1[x + 1][y - 1]) count++
+        if (x < this.rows - 1 && y < this.columns -1) if (grid1[x + 1][y + 1]) count++
+        //rules--if less than 2 neighbors or more than 3 live neighbors, cell dies
+        if (grid1[x][y] && (count < 2 || count > 3)) grid2[x][y] = false
+        //if dead cell has exactly 3 neighbors, cell is alive
+        if (!grid1[x][y] && count === 3) grid2[x][y] = true
+      }
+    }
+    this.setState({
+      //updateing current grid with new interval
+      gridFull: grid2,
+      //adding 1 to generation counter
+      generation: this.state.generation + 1
+    })
+  }
+
+  //seed the grid as soon as it loads
   componentDidMount(){
     this.seedGrid()
   }
@@ -118,6 +156,7 @@ class Main extends React.Component {
   }
 }
 
+//makes copy of array--for double buffering in grid
 function arrayClone(arr){
   return JSON.parse(JSON.stringify(arr))
 }
