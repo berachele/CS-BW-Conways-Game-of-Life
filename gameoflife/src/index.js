@@ -26,9 +26,10 @@ class Main extends React.Component {
         <h1>Conway's Game of Life</h1>
         {/* Will add buttons later */}
         <Grid 
-        gridFull={this.state.gridFull}
-        rows={this.rows}
-        columns={this.columns}
+          gridFull={this.state.gridFull}
+          rows={this.rows}
+          columns={this.columns}
+          selectBox={this.selectBox}
         />
         <h2>Generations: {this.state.generation}</h2>
       </div>
