@@ -30,7 +30,7 @@ while run:
     screen.fill(black)
 
     for event in pygame.event.get():
-        if event.type == pygame.QUIT():
+        if event.type == pygame.QUIT:
             run = False
 
     Grid.Conway(off_color=white, on_color=blue, surface=screen)
