@@ -72,6 +72,15 @@ class Main extends React.Component {
     }
   }
 
+  //selectBox method to toggle dead/alive cells
+  selectBox = (row, column) => {
+    let gridCopy = arrayClone(this.state.gridFull)
+    gridCopy[row][column] = !gridCopy[row][column]
+    this.setState({
+      gridFull: gridCopy
+    })
+  }
+
   render() {
     return (
       <div>
@@ -88,6 +97,10 @@ class Main extends React.Component {
       </div>
     )
   }
+}
+
+function arrayClone(arr){
+  return JSON.parse(JSON.stringify(arr))
 }
 
 ReactDOM.render(
