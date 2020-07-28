@@ -1,5 +1,6 @@
 import React from 'react';
 
+//Box component 
 class Box extends React.Component{
     selectBox = () => {
         this.props.selectBox(this.props.row, this.props.columns)
