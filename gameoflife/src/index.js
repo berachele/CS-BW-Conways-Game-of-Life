@@ -109,8 +109,9 @@ class Main extends React.Component {
 
     for (let x = 0; x < this.rows; x++){
       for(let y = 0; y < this.columns; y++){
+        //count = neighbor
         let count = 0
-        //checking all the neighbors
+        //checking all neighbors around cell
         if (x > 0) if (grid1[x - 1][y]) count++
         if (x > 0 && y > 0) if (grid1[x - 1][y - 1]) count++
         if (x > 0 && y < this.columns - 1) if (grid1[x - 1][y + 1]) count++
@@ -136,6 +137,7 @@ class Main extends React.Component {
   //seed the grid as soon as it loads
   componentDidMount(){
     this.seedGrid()
+    // this.playButton()
   }
 
   render() {
