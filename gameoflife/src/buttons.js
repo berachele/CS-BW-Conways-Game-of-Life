@@ -2,12 +2,20 @@ import React from 'react';
 import {Button, DropdownItem, DropdownMenu, ButtonDropdown, DropdownToggle} from 'reactstrap'
 
 class Buttons extends React.Component{
-
+    constructor(){
+        super()
+        this.state = {
+            dropdownOpen: false,
+        }
+    }
     handleSelect = (event) => {
         this.props.gridSize(event)
     }
+
+    toggle = () => this.setState(!dropdownOpen);
     
     render(){
+
         return(
             <div className="center">
                 <Button>
@@ -29,15 +37,15 @@ class Buttons extends React.Component{
                     <button className="btn btn-default" onClick={this.props.seedGrid}>
                         Seed Grid
                     </button>
-                    <ButtonDropdown>
-                        <DropdownToggle> Grid Size
+                    <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                        <DropdownToggle caret> Grid Size
                             <DropdownMenu
                                 title="Grid Size"
                                 id="size-menu"
                                 onSelect={this.handleSelect}> 
                             <DropdownItem eventkey="1">25x25</DropdownItem>
                             <DropdownItem eventkey="2">50x50</DropdownItem>
-                            <DropdownItem eventkey="3">70x70</DropdownItem>
+                            <DropdownItem eventkey="3">50x70</DropdownItem>
                             </DropdownMenu>
                         </DropdownToggle>
                     </ButtonDropdown>
