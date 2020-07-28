@@ -14,7 +14,7 @@ clock = pygame.time.Clock()
 fps = 60
 
 black = (0, 0, 0)
-blue = (0, 14, 71)
+pink = (199, 21, 133)
 white = (255, 255, 255)
 
 scaler = 40
@@ -33,6 +33,6 @@ while run:
         if event.type == pygame.QUIT:
             run = False
 
-    Grid.Conway(off_color=white, on_color=blue, surface=screen)
+    Grid.Conway(off_color=white, on_color=pink, surface=screen)
 
     pygame.display.update()
