@@ -2,7 +2,59 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import Grid from './grid'
+// import Grid from './grid'
+
+
+//Box class
+class Box extends React.Component{
+  selectBox = () => {
+      this.props.selectBox(this.props.row, this.props.columns)
+  }
+
+  render(){
+    return(
+        <div 
+            className={this.props.boxClass}
+            id={this.props.id}
+            onClick={this.selectBox}
+        />
+    )
+  }
+}
+
+//Grid class
+class Grid extends React.Component{
+
+  render(){
+    const width = (this.props.columns * 14)
+    var rowsArr = []
+
+    var boxClass = ""
+    for (var x = 0; x < this.props.rows; x++){
+        for (var y = 0; y < this.props.columns; y++){
+            let boxId = x + "_" + y
+
+            boxClass = this.props.gridFull[x][y] ? "box on" : "box off"
+            rowsArr.push(
+              <Box 
+                  boxClass={boxClass}
+                  key={boxId}
+                  boxId={boxId}
+                  row={x}
+                  columns={y}
+                  selectBox={this.props.selectBox}
+              />
+            )
+        }
+    }
+
+  return(
+    <div className="grid" style={{width: width}}>
+        {rowsArr}
+    </div>
+  )
+  }
+}
 
 //Main menu/screen
 class Main extends React.Component {
