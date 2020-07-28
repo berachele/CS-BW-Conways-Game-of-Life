@@ -1,5 +1,5 @@
 import React from 'react';
-import {ButtonToolbar, MenuItem, DropdownButton} from 'react-bootstrap'
+import {Button, DropdownItem, DropdownMenu, ButtonDropdown, DropdownToggle} from 'reactstrap'
 
 class Buttons extends React.Component{
 
@@ -10,7 +10,7 @@ class Buttons extends React.Component{
     render(){
         return(
             <div className="center">
-                <ButtonToolbar>
+                <Button>
                     <button className="btn btn-default" onClick={this.props.playButton}>
                         Play
                     </button>
@@ -29,15 +29,19 @@ class Buttons extends React.Component{
                     <button className="btn btn-default" onClick={this.props.seedGrid}>
                         Seed Grid
                     </button>
-                    <DropdownButton
-                        title="Grid Size"
-                        id="size-menu"
-                        onSelect={this.handleSelect}>
-                    <MenuItem eventkey="1">25x25</MenuItem>
-                    <MenuItem eventkey="2">50x50</MenuItem>
-                    <MenuItem eventkey="3">70x70</MenuItem>
-                    </DropdownButton>
-                </ButtonToolbar>
+                    <ButtonDropdown>
+                        <DropdownToggle> Grid Size
+                            <DropdownMenu
+                                title="Grid Size"
+                                id="size-menu"
+                                onSelect={this.handleSelect}> 
+                            <DropdownItem eventkey="1">25x25</DropdownItem>
+                            <DropdownItem eventkey="2">50x50</DropdownItem>
+                            <DropdownItem eventkey="3">70x70</DropdownItem>
+                            </DropdownMenu>
+                        </DropdownToggle>
+                    </ButtonDropdown>
+                </Button>
             </div>
         )
     }

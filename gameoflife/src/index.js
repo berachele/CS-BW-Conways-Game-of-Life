@@ -6,11 +6,11 @@ import Grid from './grid';
 import Buttons from './buttons';
 
 //Main menu/screen
-class Main extends React.Component {
+class Main extends React.Component{
   constructor(){
     super()
     this.speed = 100
-    this.rows = 30
+    this.rows = 50
     this.columns = 50
 
     this.state = {
@@ -91,7 +91,7 @@ class Main extends React.Component {
   //seed the grid as soon as it loads
   componentDidMount(){
     this.seedGrid()
-    // this.playButton()
+    this.playButton()
   }
 
   render() {
