@@ -2,10 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import Grid from './grid'
-import Buttons from './buttons'
-// import {ButtonToolbar, MenuItem, DropdownButton} from 'react-bootstrap'
-
+import Grid from './grid';
+import Buttons from './buttons';
 
 //Main menu/screen
 class Main extends React.Component {
@@ -103,9 +101,9 @@ class Main extends React.Component {
         <Buttons 
           playButton={this.playButton}
           stopButton={this.stopButton}
+          clearGrid={this.clearGrid}
           slowSpeed={this.slowSpeed}
           fastSpeed={this.fastSpeed}
-          clearGrid={this.clearGrid}
           seedGrid={this.seedGrid}
           gridSize={this.gridSize}
         />
