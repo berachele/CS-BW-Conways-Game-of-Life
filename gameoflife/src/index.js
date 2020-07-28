@@ -81,6 +81,25 @@ class Main extends React.Component {
     })
   }
 
+  //method to automatically fill grid with cells randomly
+  seedGrid = () => {
+    let gridCopy = arrayClone(this.state.gridFull)
+    for (let i = 0; i < this.rows; i++){
+      for (let j = 0; j < this.columns; j++){
+        if (Math.floor(Math.random() * 4) === 1){
+          gridCopy[i][j] = true
+        }
+      }
+    }
+    this.setState({
+      gridFull: gridCopy
+    })
+  }
+
+  componentDidMount(){
+    this.seedGrid()
+  }
+
   render() {
     return (
       <div>
@@ -93,7 +112,7 @@ class Main extends React.Component {
           columns={this.columns}
           selectBox={this.selectBox}
         />
-        <h2>Generations: {this.state.generation}</h2>
+        <h2>Generation: {this.state.generation}</h2>
       </div>
     )
   }
