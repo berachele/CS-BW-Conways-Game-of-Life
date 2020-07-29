@@ -4,6 +4,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Grid from './grid';
 import Buttons from './buttons';
+import {Collapse, CardBody, Card, Button} from 'reactstrap'
 
 //Main menu/screen
 class Main extends React.Component{
@@ -17,9 +18,12 @@ class Main extends React.Component{
       // generation counter
       generation: 0,
       //to change size of Grid--making two arrays with # of rows/cols
-      gridFull: Array(this.rows).fill().map(() => Array(this.columns).fill(false))
+      gridFull: Array(this.rows).fill().map(() => Array(this.columns).fill(false)),
+      isOpen: false
     }
   }
+  //to toggle Rules button
+  toggle = () => this.setState({isOpen: !this.state.isOpen})
 
   //selectBox method to toggle dead/alive cells
   selectBox = (row, column) => {
@@ -96,7 +100,6 @@ class Main extends React.Component{
     this.clearGrid()
   }
 
-
   //play method--using two grids for double buffering, switching intervals
   play = () => {
     let grid1 = this.state.gridFull
@@ -155,6 +158,17 @@ class Main extends React.Component{
           selectBox={this.selectBox}
         />
         <h2>Generation: {this.state.generation}</h2>
+        <Button className="rules" onClick={this.toggle}>RULES</Button>
+        <Collapse isOpen={this.state.isOpen}>
+            <Card>
+                <CardBody>
+                    <h4>There are two rules to the Game of Life:</h4>
+                    <p>1. If a live cell has either less than 2 neighbors or more than 3 nieghbors: it dies</p>
+                    <p>2. If a dead cell has exactly 3 neightbors, it comes alive</p>
+                    <p>Other notes: You may click on the squares to create your own cells, or randomly start a generated grid with the 'Seed' button</p>
+                </CardBody>
+            </Card>
+        </Collapse>
       </div>
     )
   }
