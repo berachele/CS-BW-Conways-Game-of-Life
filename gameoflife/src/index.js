@@ -4,7 +4,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Grid from './grid';
 import Buttons from './buttons';
-import {Collapse, CardBody, Card, Button, DropdownItem, DropdownMenu, ButtonDropdown, DropdownToggle} from 'reactstrap'
+import {Collapse, CardBody, Card, Button} from 'reactstrap'
 
 //Main menu/screen
 class Main extends React.Component{
@@ -19,6 +19,7 @@ class Main extends React.Component{
       generation: 0,
       //to change size of Grid--making two arrays with # of rows/cols
       gridFull: Array(this.rows).fill().map(() => Array(this.columns).fill(false)),
+      //to change for Rules toggle button
       isOpen: false
     }
   }
@@ -157,8 +158,8 @@ class Main extends React.Component{
           columns={this.columns}
           selectBox={this.selectBox}
         />
-        <h2>Generation: {this.state.generation}</h2>
-        <Button className="rules" onClick={this.toggle}>RULES</Button>
+        <h2>Generation: {this.state.generation}</h2> <br/>
+        <Button className="center" onClick={this.toggle}>RULES</Button>
         <Collapse isOpen={this.state.isOpen}>
             <Card>
                 <CardBody>
