@@ -10,8 +10,8 @@ class Main extends React.Component{
   constructor(){
     super()
     this.speed = 100
-    this.rows = 50
-    this.columns = 50
+    this.rows = 25
+    this.columns = 25
 
     this.state = {
       // generation counter

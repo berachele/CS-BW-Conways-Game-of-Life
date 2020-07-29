@@ -12,7 +12,7 @@ class Buttons extends React.Component{
         this.props.gridSize(event)
     }
 
-    toggle = () => this.setState(!dropdownOpen);
+    toggle = () => this.setState({dropdownOpen: !this.state.dropdownOpen});
     
     render(){
 
@@ -38,7 +38,8 @@ class Buttons extends React.Component{
                         Seed Grid
                     </button>
                     <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                        <DropdownToggle caret> Grid Size
+                        <DropdownToggle> Grid Size
+                            <span className="caret" />
                             <DropdownMenu
                                 title="Grid Size"
                                 id="size-menu"
