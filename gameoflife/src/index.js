@@ -56,6 +56,41 @@ class Main extends React.Component{
     clearInterval(this.intervalId)
   }
 
+  slowSpeed = () => {
+    this.speed = 1000;
+    this.playButton()
+  }
+
+  fastSpeed = () => {
+    this.speed = 50;
+    this.playButton()
+  }
+
+  clearGrid = () => {
+    var grid = Array(this.rows).fill().map(() => Array(this.columns).fill(false))
+    this.setState({
+      gridFull: grid,
+      generation: 0
+    })
+  }
+
+  gridSize = (size) => {
+    switch (size) {
+      case "1":
+        this.columns = 25
+        this.rows = 25
+      break
+      case "2":
+        this.columns = 50
+        this.rows = 50
+      break
+      case "3":
+        this.columns = 50
+        this.rows = 70
+    }
+    this.clearGrid()
+  }
+
   //play method--using two grids for double buffering, switching intervals
   play = () => {
     let grid1 = this.state.gridFull
