@@ -4,6 +4,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Grid from './grid';
 import Buttons from './buttons';
+import {Collapse, CardBody, Card, Button} from 'reactstrap'
 
 //Main menu/screen
 class Main extends React.Component{
@@ -17,9 +18,13 @@ class Main extends React.Component{
       // generation counter
       generation: 0,
       //to change size of Grid--making two arrays with # of rows/cols
-      gridFull: Array(this.rows).fill().map(() => Array(this.columns).fill(false))
+      gridFull: Array(this.rows).fill().map(() => Array(this.columns).fill(false)),
+      //to change for Rules toggle button
+      isOpen: false
     }
   }
+  //to toggle Rules button
+  toggle = () => this.setState({isOpen: !this.state.isOpen})
 
   //selectBox method to toggle dead/alive cells
   selectBox = (row, column) => {
@@ -96,7 +101,6 @@ class Main extends React.Component{
     this.clearGrid()
   }
 
-
   //play method--using two grids for double buffering, switching intervals
   play = () => {
     let grid1 = this.state.gridFull
@@ -154,7 +158,20 @@ class Main extends React.Component{
           columns={this.columns}
           selectBox={this.selectBox}
         />
-        <h2>Generation: {this.state.generation}</h2>
+        <h2>Generation: {this.state.generation}</h2> <br/>
+        <Button className="center" onClick={this.toggle}>RULES</Button>
+        <Collapse isOpen={this.state.isOpen}>
+            <Card>
+                <CardBody>
+                    <h3>There are two rules to the Game of Life:</h3>
+                    <h4>1. If a live cell has either less than 2 neighbors or more than 3 nieghbors: it dies</h4>
+                    <h4>2. If a dead cell has exactly 3 neightbors, it comes alive</h4>
+                    <h3>Other notes:</h3>
+                    <p>'Neighbors' are calculated by the 8 squares that touch that specific cell</p>
+                    <p>You may click on the squares to create your own cells, or randomly start a generated grid with the 'Seed' button</p>
+                </CardBody>
+            </Card>
+        </Collapse>
       </div>
     )
   }
