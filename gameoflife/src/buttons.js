@@ -25,22 +25,22 @@ class Buttons extends React.Component{
                     <div className="buttonParent">
                         <button className="btn btn-default" onClick={this.props.playButton}>
                             Play
-                        </button>
+                        </button> <span/> <span/>
                         <button className="btn btn-default" onClick={this.props.stopButton}>
                             Stop
-                        </button>
+                        </button> <span/> <span/>
                         <button className="btn btn-default" onClick={this.props.clearGrid}>
                             Clear
-                        </button>
+                        </button> <span/> <span/>
                         <button className="btn btn-default" onClick={this.props.slowSpeed}>
                             Slow
-                        </button>
+                        </button> <span/> <span/>
                         <button className="btn btn-default" onClick={this.props.fastSpeed}>
                             Fast
-                        </button>
+                        </button> <span/> <span/>
                         <button className="btn btn-default" onClick={this.props.seedGrid}>
-                            Seed Grid
-                        </button>
+                            Seed
+                        </button> <span/> <span/> 
                         <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                             <DropdownToggle className="btn btn-default"> Grid Size <span/>
                                 <span className="caret" />

@@ -4,7 +4,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Grid from './grid';
 import Buttons from './buttons';
-import {Collapse, CardBody, Card, Button} from 'reactstrap'
+import {Collapse, CardBody, Card, Button, DropdownItem, DropdownMenu, ButtonDropdown, DropdownToggle} from 'reactstrap'
 
 //Main menu/screen
 class Main extends React.Component{
@@ -162,10 +162,12 @@ class Main extends React.Component{
         <Collapse isOpen={this.state.isOpen}>
             <Card>
                 <CardBody>
-                    <h4>There are two rules to the Game of Life:</h4>
-                    <p>1. If a live cell has either less than 2 neighbors or more than 3 nieghbors: it dies</p>
-                    <p>2. If a dead cell has exactly 3 neightbors, it comes alive</p>
-                    <p>Other notes: You may click on the squares to create your own cells, or randomly start a generated grid with the 'Seed' button</p>
+                    <h3>There are two rules to the Game of Life:</h3>
+                    <h4>1. If a live cell has either less than 2 neighbors or more than 3 nieghbors: it dies</h4>
+                    <h4>2. If a dead cell has exactly 3 neightbors, it comes alive</h4>
+                    <h3>Other notes:</h3>
+                    <p>'Neighbors' are calculated by the 8 squares that touch that specific cell</p>
+                    <p>You may click on the squares to create your own cells, or randomly start a generated grid with the 'Seed' button</p>
                 </CardBody>
             </Card>
         </Collapse>
