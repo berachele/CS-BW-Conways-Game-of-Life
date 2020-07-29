@@ -72,9 +72,12 @@ class Main extends React.Component{
       gridFull: grid,
       generation: 0
     })
+    this.stopButton()
+    this.speed = 100
   }
 
   gridSize = (size) => {
+    console.log('hitting GRIDSIZE')
     switch (size) {
       case "1":
         this.columns = 25
@@ -84,12 +87,13 @@ class Main extends React.Component{
         this.columns = 50
         this.rows = 50
       break
-      case "3":
+      default:
         this.columns = 50
         this.rows = 70
     }
     this.clearGrid()
   }
+
 
   //play method--using two grids for double buffering, switching intervals
   play = () => {
