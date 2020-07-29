@@ -10,8 +10,8 @@ class Buttons extends React.Component{
     }
     
     handleSelect = (event) => {
-        console.log('inside HANDLESELECT')
-        this.props.gridSize(event)
+        const target = event.currentTarget.attributes.props.nodeValue
+        this.props.gridSize(target)
     }
 
     toggle = () => this.setState({dropdownOpen: !this.state.dropdownOpen});
@@ -39,17 +39,13 @@ class Buttons extends React.Component{
                     <button className="btn btn-default" onClick={this.props.seedGrid}>
                         Seed Grid
                     </button>
-                    <button className="btn btn-default dropdown-toggle" type="button" id="dropdownmenu" data-toggle="dropdown">
-                        Dropdown
-                        <span className="caret" />
-                    </button>
                     <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                         <DropdownToggle className="btn btn-default"> Grid Size <span/>
                             <span className="caret" />
                             <DropdownMenu> 
-                            <DropdownItem eventkey="1" onClick={this.handleSelect}>25x25</DropdownItem>
-                            <DropdownItem eventkey="2" onClick={this.handleSelect}>50x50</DropdownItem>
-                            <DropdownItem eventkey="3" onClick={this.handleSelect}>50x70</DropdownItem>
+                            <DropdownItem key="1" props={"1"} onClick={this.handleSelect}>25x25</DropdownItem>
+                            <DropdownItem key="2" props={"2"}  onClick={this.handleSelect}>50x50</DropdownItem>
+                            <DropdownItem key="3" props={"3"}  onClick={this.handleSelect}>50x70</DropdownItem>
                             </DropdownMenu>
                         </DropdownToggle>
                     </ButtonDropdown>

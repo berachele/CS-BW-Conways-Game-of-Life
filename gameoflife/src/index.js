@@ -77,19 +77,21 @@ class Main extends React.Component{
   }
 
   gridSize = (size) => {
-    console.log('hitting GRIDSIZE')
+    console.log({size})
+
     switch (size) {
       case "1":
         this.columns = 25
         this.rows = 25
-      break
+        break
       case "2":
         this.columns = 50
         this.rows = 50
-      break
+        break
       default:
         this.columns = 50
         this.rows = 70
+        break
     }
     this.clearGrid()
   }
