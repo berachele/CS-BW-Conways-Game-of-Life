@@ -45,13 +45,13 @@ class Main extends React.Component{
     })
   }
 
+  "BUTTONS"
   //function when we click Play button
   playButton = () => {
     clearInterval(this.intervalId)
     this.intervalId = setInterval(this.play, this.speed)
   }
 
-  //stops grid from going to next generation
   stopButton = () => {
     clearInterval(this.intervalId)
   }
@@ -89,8 +89,8 @@ class Main extends React.Component{
         this.rows = 50
         break
       default:
-        this.columns = 50
-        this.rows = 70
+        this.columns = 70
+        this.rows = 50
         break
     }
     this.clearGrid()

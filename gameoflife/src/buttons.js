@@ -45,7 +45,7 @@ class Buttons extends React.Component{
                             <DropdownMenu> 
                             <DropdownItem key="1" props={"1"} onClick={this.handleSelect}>25x25</DropdownItem>
                             <DropdownItem key="2" props={"2"}  onClick={this.handleSelect}>50x50</DropdownItem>
-                            <DropdownItem key="3" props={"3"}  onClick={this.handleSelect}>50x70</DropdownItem>
+                            <DropdownItem key="3" props={"3"}  onClick={this.handleSelect}>70x50</DropdownItem>
                             </DropdownMenu>
                         </DropdownToggle>
                     </ButtonDropdown>
