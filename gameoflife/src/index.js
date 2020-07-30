@@ -4,7 +4,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Grid from './grid';
 import Buttons from './buttons';
-import {Collapse, CardBody, Card, Button} from 'reactstrap'
+import {Collapse, CardBody, Card, Button, Row, Col} from 'reactstrap'
 import {Image} from 'react-bootstrap'
 
 //Main menu/screen
@@ -181,54 +181,82 @@ class Main extends React.Component{
         <Collapse isOpen={this.state.patternsOpen}>
             <Card>
                 <CardBody>
+                  <Row>
                     <h3>Popular Patterns</h3>
-                    <h4>Blinker</h4>
-                    <p>This pattern consitantly moves back and forth</p>
-                    <div className="center">
-                      <Image src="https://www.conwaylife.com/w/images/b/b9/Blinker.gif" alt="Blinker pattern" thumbnail/>
-                    </div>
-                    <h4>Traffic Light</h4>
-                    <p>A Traffic Light is four Blinker's next to eachother in the form of a square, signifying a traffic light</p>
-                    <div className="center">
-                      <Image src="https://www.conwaylife.com/w/images/9/96/Trafficlight.gif" alt="Traffic Light pattern" thumbnail/>
-                    </div>
-                    <h4>Glider</h4>
-                    <p>This fun pattern will 'crawl' or 'glide' down the grid</p>
-                    <div className="center">
-                      <Image src="https://www.conwaylife.com/w/images/8/81/Glider.gif" alt="Glider pattern" thumbnail/>
-                    </div>
-                    <h4>Python</h4>
-                    <p>Beware of the giant snake!</p>
-                    <div className="center">
-                      <Image src="https://www.conwaylife.com/w/images/f/fd/Longsnake.png" alt="Python pattern" thumbnail/>
-                    </div>
-                    <h4>Acorn</h4>
-                    <p>This small pattern grows into a large population! "From little acorns might oaks do grow"</p>
-                    <div className="center">
-                      <Image src="https://www.conwaylife.com/w/images/c/cd/Acorn.png" alt="Acorn pattern" thumbnail/>
-                    </div>
-                    <h4>Though these next patterns don't populate or "animate" by themselves, when you have more than one it can grow and shift into movement!</h4>
-                    <h4>Fishhook (Eater)</h4>
-                    <p>This fishhook is said to eat other patterns</p>
-                    <div className="center">
-                      <Image src="https://www.conwaylife.com/w/images/3/35/Eater1.png" alt="Fishhook pattern" thumbnail/>
-                    </div>
-                    <h4>Mango</h4>
-                    <div className="center">
-                      <Image src="https://www.conwaylife.com/w/images/3/38/Mango.png" alt="Mango pattern" thumbnail/>
-                    </div>
-                    <h4>Snake</h4>
-                    <div className="center">
-                      <Image src="https://www.conwaylife.com/w/images/5/5a/Snake.png" alt="Snake pattern" thumbnail/>
-                    </div>
-                    <h4>Boat</h4>
-                    <div className="center">
-                      <Image src="https://www.conwaylife.com/w/images/1/1e/Boat.png" alt="Boat pattern" thumbnail/>
-                    </div>
-                    <h4>Beehive</h4>
-                    <div className="center">
-                      <Image src="https://www.conwaylife.com/w/images/3/3c/Beehive.png" alt="Beehive pattern" thumbnail/>
-                    </div>
+                    <Col className="columns" xs="3">
+                      <div className="card">
+                        <h4>Blinker</h4>
+                        <p>This pattern consitantly moves back and forth</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/b/b9/Blinker.gif" alt="Blinker pattern" thumbnail/>
+                        </div>
+                      </div>
+                      <div className="card">
+                      <h4>Traffic Light</h4>
+                        <p>A Traffic Light is four Blinker's in a square</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/9/96/Trafficlight.gif" alt="Traffic Light pattern" thumbnail/>
+                        </div>
+                      </div>
+                      <div className="card">
+                        <h4>Glider</h4>
+                        <p>This fun pattern will 'crawl' down the grid</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/8/81/Glider.gif" alt="Glider pattern" thumbnail/>
+                        </div>
+                      </div>
+                      <div className="card">
+                        <h4>Python</h4>
+                        <p>Python is a larger pattern of the Snake (see below)</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/f/fd/Longsnake.png" alt="Python pattern" thumbnail/>
+                        </div>
+                      </div>
+                      <div className="card">
+                        <h4>Acorn</h4>
+                        <p>This small pattern grows into a large lifeform!</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/c/cd/Acorn.png" alt="Acorn pattern" thumbnail/>
+                        </div>
+                      </div>
+                      {/* <h4>Though these next patterns don't populate or "animate" by themselves, when you have more than one it can grow and shift into movement!</h4> */}
+                      <div className="card">
+                        <h4>Fishhook (Eater)</h4>
+                        <p>Beware! This Fishhook is said to eat other patterns</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/3/35/Eater1.png" alt="Fishhook pattern" thumbnail/>
+                        </div>
+                      </div>
+                      <div className="card">
+                        <h4>Mango</h4>
+                        <p>A mango is the 12th most common still life</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/3/38/Mango.png" alt="Mango pattern" thumbnail/>
+                        </div>
+                      </div>
+                      <div className="card">
+                        <h4>Snake</h4>
+                        <p>A smaller version of the Python, but it doesn't move</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/5/5a/Snake.png" alt="Snake pattern" thumbnail/>
+                        </div>
+                      </div>
+                      <div className="card">
+                        <h4>Boat</h4>
+                        <p>The smallest variation of many boat patterns</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/1/1e/Boat.png" alt="Boat pattern" thumbnail/>
+                        </div>
+                      </div>
+                      <div className="card">
+                        <h4>Beehive</h4>
+                        <p>It may be small but multiple hives make a Honey Farm pattern</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/3/3c/Beehive.png" alt="Beehive pattern" thumbnail/>
+                        </div>
+                      </div>
+                    </Col>
+                  </Row>
                 </CardBody>
             </Card>
         </Collapse>

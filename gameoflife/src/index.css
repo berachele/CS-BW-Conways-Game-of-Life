@@ -55,3 +55,14 @@ h1, h2, h3, h4, p{
 p{
   font-size: medium;
 }
+
+.columns{
+  display: flex;
+  width: 89%;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.card{
+  margin: 1% -3%;
+}
