@@ -4,7 +4,8 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Grid from './grid';
 import Buttons from './buttons';
-import {Collapse, CardBody, Card, Button} from 'reactstrap'
+import {Collapse, CardBody, Card, Button, Row, Col} from 'reactstrap'
+import {Image} from 'react-bootstrap'
 
 //Main menu/screen
 class Main extends React.Component{
@@ -20,11 +21,14 @@ class Main extends React.Component{
       //to change size of Grid--making two arrays with # of rows/cols
       gridFull: Array(this.rows).fill().map(() => Array(this.columns).fill(false)),
       //to change for Rules toggle button
-      isOpen: false
+      rulesIsOpen: false,
+      patternsOpen: false
     }
   }
   //to toggle Rules button
-  toggle = () => this.setState({isOpen: !this.state.isOpen})
+  rulesToggle = () => this.setState({rulesIsOpen: !this.state.rulesIsOpen})
+
+  patternsToggle = () => this.setState({patternsOpen: !this.state.patternsOpen})
 
   //selectBox method to toggle dead/alive cells
   selectBox = (row, column) => {
@@ -159,16 +163,99 @@ class Main extends React.Component{
           selectBox={this.selectBox}
         />
         <h2>Generation: {this.state.generation}</h2> <br/>
-        <Button className="center" onClick={this.toggle}>RULES</Button>
-        <Collapse isOpen={this.state.isOpen}>
+        <Button className="center" onClick={this.rulesToggle}>RULES</Button>
+        <Collapse isOpen={this.state.rulesIsOpen}>
             <Card>
-                <CardBody>
+                <CardBody className="rules">
                     <h3>There are two rules to the Game of Life:</h3>
                     <h4>1. If a live cell has either less than 2 neighbors or more than 3 nieghbors: it dies</h4>
                     <h4>2. If a dead cell has exactly 3 neightbors, it comes alive</h4>
                     <h3>Other notes:</h3>
                     <p>'Neighbors' are calculated by the 8 squares that touch that specific cell</p>
                     <p>You may click on the squares to create your own cells, or randomly start a generated grid with the 'Seed' button</p>
+                    <p>Try looking at 'Patterns' to start creating cells of your own!</p>
+                </CardBody>
+            </Card>
+        </Collapse>
+        <Button className="center" onClick={this.patternsToggle}>PATTERNS</Button>
+        <Collapse isOpen={this.state.patternsOpen}>
+            <Card>
+                <CardBody className="rules patterns">
+                  <Row>
+                    <h3>Popular Patterns</h3>
+                    <Col className="columns" xs="3">
+                      <div className="card blinker">
+                        <h4>Blinker</h4>
+                        <p>This pattern consitantly moves back and forth</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/b/b9/Blinker.gif" alt="Blinker pattern" thumbnail/>
+                        </div>
+                      </div>
+                      <div className="card traffic">
+                      <h4>Traffic Light</h4>
+                        <p>A Traffic Light is four Blinker's in a square</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/9/96/Trafficlight.gif" alt="Traffic Light pattern" thumbnail/>
+                        </div>
+                      </div>
+                      <div className="card glider">
+                        <h4>Glider</h4>
+                        <p>This fun pattern will 'crawl' down the grid</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/8/81/Glider.gif" alt="Glider pattern" thumbnail/>
+                        </div>
+                      </div>
+                      <div className="card python">
+                        <h4>Python</h4>
+                        <p>Python is a larger pattern of the Snake (see below)</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/f/fd/Longsnake.png" alt="Python pattern" thumbnail/>
+                        </div>
+                      </div>
+                      <div className="card">
+                        <h4>Acorn</h4>
+                        <p>This small pattern grows into a large lifeform!</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/c/cd/Acorn.png" alt="Acorn pattern" thumbnail/>
+                        </div>
+                      </div>
+                      <div className="card">
+                        <h4>Fishhook (Eater)</h4>
+                        <p>Beware! This Fishhook is said to eat other patterns</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/3/35/Eater1.png" alt="Fishhook pattern" thumbnail/>
+                        </div>
+                      </div>
+                      <div className="card mango">
+                        <h4>Mango</h4>
+                        <p>A mango is the 12th most common still life</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/3/38/Mango.png" alt="Mango pattern" thumbnail/>
+                        </div>
+                      </div>
+                      <div className="card">
+                        <h4>Snake</h4>
+                        <p>A smaller version of the Python, but it doesn't move</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/5/5a/Snake.png" alt="Snake pattern" thumbnail/>
+                        </div>
+                      </div>
+                      <div className="card">
+                        <h4>Boat</h4>
+                        <p>The smallest variation of many boat patterns</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/1/1e/Boat.png" alt="Boat pattern" thumbnail/>
+                        </div>
+                      </div>
+                      {/* <div className="card">
+                        <h4>Beehive</h4>
+                        <p>It may be small but multiple hives make a Honey Farm pattern</p>
+                        <div className="center">
+                          <Image src="https://www.conwaylife.com/w/images/3/3c/Beehive.png" alt="Beehive pattern" thumbnail/>
+                        </div>
+                      </div> */}
+                    </Col>
+                  </Row>
                 </CardBody>
             </Card>
         </Collapse>
