@@ -45,9 +45,9 @@ h1, h2, h3, h4, p{
   margin-top: 10px;
 }
 
-/* h1, h2{
-  text-align: center;
-} */
+h1, h2, h3{
+  text-shadow: 2px 2px teal;
+}
 
 .rules{
   width: 50%;
