@@ -180,32 +180,32 @@ class Main extends React.Component{
         <Button className="center" onClick={this.patternsToggle}>PATTERNS</Button>
         <Collapse isOpen={this.state.patternsOpen}>
             <Card>
-                <CardBody>
+                <CardBody className="rules patterns">
                   <Row>
                     <h3>Popular Patterns</h3>
                     <Col className="columns" xs="3">
-                      <div className="card">
+                      <div className="card blinker">
                         <h4>Blinker</h4>
                         <p>This pattern consitantly moves back and forth</p>
                         <div className="center">
                           <Image src="https://www.conwaylife.com/w/images/b/b9/Blinker.gif" alt="Blinker pattern" thumbnail/>
                         </div>
                       </div>
-                      <div className="card">
+                      <div className="card traffic">
                       <h4>Traffic Light</h4>
                         <p>A Traffic Light is four Blinker's in a square</p>
                         <div className="center">
                           <Image src="https://www.conwaylife.com/w/images/9/96/Trafficlight.gif" alt="Traffic Light pattern" thumbnail/>
                         </div>
                       </div>
-                      <div className="card">
+                      <div className="card glider">
                         <h4>Glider</h4>
                         <p>This fun pattern will 'crawl' down the grid</p>
                         <div className="center">
                           <Image src="https://www.conwaylife.com/w/images/8/81/Glider.gif" alt="Glider pattern" thumbnail/>
                         </div>
                       </div>
-                      <div className="card">
+                      <div className="card python">
                         <h4>Python</h4>
                         <p>Python is a larger pattern of the Snake (see below)</p>
                         <div className="center">
@@ -219,7 +219,6 @@ class Main extends React.Component{
                           <Image src="https://www.conwaylife.com/w/images/c/cd/Acorn.png" alt="Acorn pattern" thumbnail/>
                         </div>
                       </div>
-                      {/* <h4>Though these next patterns don't populate or "animate" by themselves, when you have more than one it can grow and shift into movement!</h4> */}
                       <div className="card">
                         <h4>Fishhook (Eater)</h4>
                         <p>Beware! This Fishhook is said to eat other patterns</p>
@@ -227,7 +226,7 @@ class Main extends React.Component{
                           <Image src="https://www.conwaylife.com/w/images/3/35/Eater1.png" alt="Fishhook pattern" thumbnail/>
                         </div>
                       </div>
-                      <div className="card">
+                      <div className="card mango">
                         <h4>Mango</h4>
                         <p>A mango is the 12th most common still life</p>
                         <div className="center">
