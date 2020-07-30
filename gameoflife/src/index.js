@@ -166,7 +166,7 @@ class Main extends React.Component{
         <Button className="center" onClick={this.rulesToggle}>RULES</Button>
         <Collapse isOpen={this.state.rulesIsOpen}>
             <Card>
-                <CardBody>
+                <CardBody className="rules">
                     <h3>There are two rules to the Game of Life:</h3>
                     <h4>1. If a live cell has either less than 2 neighbors or more than 3 nieghbors: it dies</h4>
                     <h4>2. If a dead cell has exactly 3 neightbors, it comes alive</h4>
@@ -248,13 +248,13 @@ class Main extends React.Component{
                           <Image src="https://www.conwaylife.com/w/images/1/1e/Boat.png" alt="Boat pattern" thumbnail/>
                         </div>
                       </div>
-                      <div className="card">
+                      {/* <div className="card">
                         <h4>Beehive</h4>
                         <p>It may be small but multiple hives make a Honey Farm pattern</p>
                         <div className="center">
                           <Image src="https://www.conwaylife.com/w/images/3/3c/Beehive.png" alt="Beehive pattern" thumbnail/>
                         </div>
-                      </div>
+                      </div> */}
                     </Col>
                   </Row>
                 </CardBody>
