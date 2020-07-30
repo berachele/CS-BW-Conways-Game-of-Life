@@ -18,15 +18,17 @@
     representation is where the Cellular Automata comes in.
     
     What is Cellular Automata?
+    
     Otherwise abbreviated CA, is a program that is usually a 2D grid that changes over time. 
     This program usually uses the double buffer method, where there are two states of the grid.
     The 'current' state is what shows and the next grid/generation to show is a 'new' grid altogether.
-    The 'current' and 'new' grid change intermediately as one is worked on in the background to show the next generation.
+    The 'current' and 'new' grid change intermediately as one is worked on in the background to show
+    the next generation.
 
 ### Turing Completeness
-    This saying is used when a computing system or program is able to perform general purpose computation.
-    This is referred to my representation of the Game of Life because it correctly computes the patterns
-    of the neighbors to be able to change each generation.
+    This saying is used when a computing system or program is able to perform general purpose
+    computation. This is referred to my representation of the Game of Life because it correctly
+    computes the patterns of the neighbors to be able to change each generation.
 
 ### FullStack Web Implementation
     React, class components, correct use of props and state management, Javascript,
